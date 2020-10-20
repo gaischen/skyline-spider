@@ -1,7 +1,6 @@
 package poster
 
 import (
-	"fmt"
 	"io/ioutil"
 	"net/http"
 	"sync"
@@ -32,12 +31,12 @@ func NewHttpPoster() *HttpPoster {
 func (h *HttpPoster) Call(url string, head *PosterHead) {
 	resp, err := http.Get(url)
 	if err != nil {
-		fmt.Errorf("error", err)
+		//fmt.Errorf("error", err)
 	}
 
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
-		fmt.Errorf("read body error", err)
+		//fmt.Errorf("read body error", err)
 	}
 
 	if len(h.callbacks) > 0 {
