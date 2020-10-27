@@ -6,6 +6,7 @@ import (
 	"github.com/skyline/skyline-spider/rpc/framework"
 	"github.com/skyline/skyline-spider/rpc/framework/config"
 	"github.com/skyline/skyline-spider/rpc/framework/registry"
+	"github.com/skyline/skyline-spider/rpc/framework/slb"
 	"strconv"
 	"time"
 )
@@ -48,6 +49,18 @@ func LoadService(wrapper *rpcConsumerWrapper, rpcConfig *config.RpcConfig) error
 		case <-ch:
 		}
 	}
+
+	chain := framework.NewInvokerChain()
+
+	//add load balance
+	chain.AddInvoker(func(invoker framework.Invoker) framework.Invoker {
+		//do sth
+		lb:=slb.GetLoadBalance("")
+		return NewFailFastClusterInvoker(invoker, lb, wrapper.referConfig.Retries)
+	})
+
+	providerInvoker := NewProviderInvoker()
+
 	return nil
 }
 
