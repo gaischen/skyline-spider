@@ -1,6 +1,9 @@
 package framework
 
-import "github.com/skyline/skyline-spider/rpc/framework/entity"
+import (
+	"github.com/skyline/skyline-spider/rpc/framework/entity"
+	"github.com/skyline/skyline-spider/rpc/transport"
+)
 
 type Invoker interface {
 	Invoke(context *InvokerContext) (*entity.Result, error)
@@ -25,6 +28,30 @@ func (ic *InvokerChain) AddInvoker(m Middleware) {
 	ic.invokers = append(ic.invokers, m)
 }
 
-type InvokerContext struct {
+func (ic *InvokerChain) BuildInvokerChain(endInvoker Invoker) (Invoker, error) {
+	//normally last invoker is endInvoker
+	var invoker = endInvoker
+	for i := len(ic.invokers) - 1; i >= 0; i-- {
+		invoker = ic.invokers[i](invoker)
+	}
+	return invoker, nil
+}
 
+type ResponseCallback interface {
+	Callback(response *CallBackResponse)
+}
+type CallBackResponse struct {
+	Response interface{}
+	Err      error
+}
+
+type AsyncListener func(response *CallBackResponse, context *InvokerContext)
+
+type InvokerContext struct {
+	UniqueMetaName string
+	Invocation     *entity.Invocation
+	Provider       *transport.Provider
+	Callback       transport.Callback
+	context        map[string]interface{}
+	asyncListeners []AsyncListener
 }

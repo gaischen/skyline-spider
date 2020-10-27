@@ -55,12 +55,18 @@ func LoadService(wrapper *rpcConsumerWrapper, rpcConfig *config.RpcConfig) error
 	//add load balance
 	chain.AddInvoker(func(invoker framework.Invoker) framework.Invoker {
 		//do sth
-		lb:=slb.GetLoadBalance("")
+		lb := slb.GetLoadBalance("")
 		return NewFailFastClusterInvoker(invoker, lb, wrapper.referConfig.Retries)
 	})
 
 	providerInvoker := NewProviderInvoker()
-
+	invoker, err := chain.BuildInvokerChain(providerInvoker)
+	if err != nil {
+		errors.Errorf("build tesla consumer invoker chain failed! err:%s", err)
+		return err
+	}
+	proxy := newProxy(wrapper, rpcConfig, invoker)
+	proxy.doProxy()
 	return nil
 }
 

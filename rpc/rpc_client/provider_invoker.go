@@ -17,6 +17,17 @@ func (p *ProviderInvoker) Invoke(context *framework.InvokerContext) (*entity.Res
 	var err error
 	var provider *transport.Provider
 
+	provider = context.Provider
+	if provider == nil {
+		return &entity.Result{
+			Status:      0,
+			Value:       nil,
+			Desc:        "",
+			Exception:   nil,
+			Attachments: nil,
+		}, err
+	}
+
 
 
 	return nil, err
