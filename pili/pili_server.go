@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"log"
 	"os"
@@ -10,20 +11,16 @@ import (
 	"github.com/pili-engineering/pili-sdk-go.v2/pili"
 )
 
-var (
-	AccessKey = "iLrYs_UKAf_i7JCqJzNBUI_YN6nXgZSwrCgkrg-N" // 替换成自己 Qiniu 账号的 AccessKey.
-	SecretKey = "KLmHAmMBft4GjpwgDGvTylIJX7tS3k85liBxD6dG" // 替换成自己 Qiniu 账号的 SecretKey.
-	HubName   = "PiliSDKTest"                              // Hub 必须事先存在.
-)
+var AccessKey string
+var SecretKey string
+var HubName string
 
 func init() {
-	if v := os.Getenv("QINIU_ACCESS_KEY"); v != "" {
-		AccessKey = v
-	}
+	flag.StringVar(&AccessKey, "QINIU_ACCESS_KEY", "", "")
+	flag.StringVar(&SecretKey, "QINIU_SECRET_KEY", "", "")          // 替换成自己 Qiniu 账号的 SecretKey.
+	flag.StringVar(&HubName, "QINIU_SECRET_KEY", "PiliSDKTest", "") // Hub 必须事先存在.
 
-	if v := os.Getenv("QINIU_SECRET_KEY"); v != "" {
-		SecretKey = v
-	}
+	flag.Parse()
 
 	if AccessKey == "" || SecretKey == "" {
 		log.Fatal("need set access key and secret key")
