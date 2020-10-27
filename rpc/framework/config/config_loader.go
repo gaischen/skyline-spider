@@ -7,7 +7,7 @@ var (
 	configMutex sync.Mutex
 )
 
-func GetTeslaConfig() *RpcConfig {
+func GetRpcConfig() *RpcConfig {
 	if nil == rpcConfig {
 		defer configMutex.Unlock()
 		configMutex.Lock()
