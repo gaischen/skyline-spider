@@ -85,3 +85,25 @@ func tickerContext(ctx context.Context) {
 		}
 	}
 }
+
+func TestTimeoutContext(t *testing.T) {
+	ctx, cancelFunc := context.WithTimeout(context.Background(), 3*time.Second)
+	go tickerTimeoutContext(ctx)
+	time.Sleep(5 * time.Second)
+	cancelFunc()
+	time.Sleep(3 * time.Second)
+}
+
+func tickerTimeoutContext(ctx context.Context) {
+	t := time.NewTicker(1 * time.Second)
+	for range t.C {
+		select {
+		case <-ctx.Done():
+			fmt.Println("timeout...")
+			return
+			//default:
+			//	fmt.Println("tick...")
+		}
+		fmt.Println("outter ticker")
+	}
+}
