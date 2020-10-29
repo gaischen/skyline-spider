@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 	"strconv"
+	"testing"
 	"time"
 
 	"github.com/pili-engineering/pili-sdk-go.v2/pili"
@@ -16,9 +17,11 @@ var SecretKey string
 var HubName string
 
 func init() {
+	testing.Init()
+
 	flag.StringVar(&AccessKey, "QINIU_ACCESS_KEY", "", "")
 	flag.StringVar(&SecretKey, "QINIU_SECRET_KEY", "", "")          // 替换成自己 Qiniu 账号的 SecretKey.
-	flag.StringVar(&HubName, "QINIU_SECRET_KEY", "PiliSDKTest", "") // Hub 必须事先存在.
+	flag.StringVar(&HubName, "HubName", "PiliSDKTest", "") // Hub 必须事先存在.
 
 	flag.Parse()
 
