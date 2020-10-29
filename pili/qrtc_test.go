@@ -20,7 +20,6 @@ func TestRtcRoomToken(t *testing.T) {
 	)
 
 	app, err := manager.CreateApp(rtc.AppInitConf{
-		Hub:            HubName,
 		Title:          "vanga_app_info",
 		MaxUsers:       1000,
 		NoAutoKickUser: false,
