@@ -1,4 +1,4 @@
-fetch('https://weibo.com/ajax/statuses/mymblog?uid=2821231635&page=1&feature=0').then(function(response) {
+fetch('https://weibo.com/ajax/statuses/mymblog?uid=00000000&page=1&feature=0').then(function(response) {
     return response.json()
 }).then(function(data) {
     for (var item in data.data.list) {
