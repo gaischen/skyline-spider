@@ -1,26 +1,28 @@
 #! /bin/bash
 
+##处理下网络
+env|grep -I proxy
 git config --global http.proxy
 
+##更新代码
 git pull
-
 go mod vendor
 
-ech "start building main.go..."
-
+##编译
+echo "start building main.go..."
 go build main.go
+echo "build main.go successful"
 
-ech "build main.go successful"
-
+##进程历史
 pid = $(ps -ef | grep "main" | grep -v grep | awk '{print $2}')
-
 echo "found go pid:" + $pid
 
-if ps -p pid > /dev/null
+if ps -p $pid > /dev/null
 
 then
    echo "$pid is running"
-   # Do something knowing the pid exists, i.e. the process with $PID is running
+   echo "killing $pid"
 fi
 
 
+# nuhup go main > run.log &
