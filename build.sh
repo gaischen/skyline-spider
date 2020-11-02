@@ -21,7 +21,12 @@ if ps -p $pid > /dev/null
   then
      echo "$pid is running"
      echo "killing $pid"
+     kill -9 $pid
+      echo "killing $pid successful"
 fi
 
 
-# nuhup go main > run.log &
+nuhup go main > run.log &
+
+echo "start new process..."
+npid=$(ps -ef | grep "main" | grep -v grep | awk '{print $2}')
