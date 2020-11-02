@@ -1,8 +1,8 @@
 package slb
 
 import (
-	"github.com/skyline/skyline-spider/rpc/framework/config"
-	"github.com/skyline/skyline-spider/rpc/framework/entity"
+	"github.com/vanga-top/skyline-spider/rpc/framework/config"
+	"github.com/vanga-top/skyline-spider/rpc/framework/entity"
 )
 
 type LoadBalance interface {

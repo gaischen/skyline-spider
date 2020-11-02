@@ -1,8 +1,8 @@
 package transport
 
 import (
-	"github.com/skyline/skyline-spider/rpc/framework/entity"
-	"github.com/skyline/skyline-spider/rpc/framework/serializations"
+	"github.com/vanga-top/skyline-spider/rpc/framework/entity"
+	"github.com/vanga-top/skyline-spider/rpc/framework/serializations"
 	"time"
 )
 

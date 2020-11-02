@@ -1,8 +1,8 @@
 package framework
 
 import (
-	"github.com/skyline/skyline-spider/rpc/framework/entity"
-	"github.com/skyline/skyline-spider/rpc/transport"
+	"github.com/vanga-top/skyline-spider/rpc/framework/entity"
+	"github.com/vanga-top/skyline-spider/rpc/transport"
 )
 
 type Invoker interface {

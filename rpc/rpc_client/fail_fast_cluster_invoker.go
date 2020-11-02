@@ -1,10 +1,10 @@
 package rpc_client
 
 import (
-	"github.com/skyline/skyline-spider/rpc/framework"
-	"github.com/skyline/skyline-spider/rpc/framework/config"
-	"github.com/skyline/skyline-spider/rpc/framework/entity"
-	"github.com/skyline/skyline-spider/rpc/framework/slb"
+	"github.com/vanga-top/skyline-spider/rpc/framework"
+	"github.com/vanga-top/skyline-spider/rpc/framework/config"
+	"github.com/vanga-top/skyline-spider/rpc/framework/entity"
+	"github.com/vanga-top/skyline-spider/rpc/framework/slb"
 )
 
 type FailFastClusterInvoker struct {

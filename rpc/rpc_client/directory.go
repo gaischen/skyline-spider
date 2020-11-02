@@ -2,8 +2,8 @@ package rpc_client
 
 import (
 	"context"
-	"github.com/skyline/skyline-spider/rpc/framework/config"
-	"github.com/skyline/skyline-spider/rpc/transport"
+	"github.com/vanga-top/skyline-spider/rpc/framework/config"
+	"github.com/vanga-top/skyline-spider/rpc/transport"
 	"sync"
 )
 

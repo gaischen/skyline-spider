@@ -1,9 +1,9 @@
 package rpc_client
 
 import (
-	"github.com/skyline/skyline-spider/rpc/framework"
-	"github.com/skyline/skyline-spider/rpc/framework/entity"
-	"github.com/skyline/skyline-spider/rpc/transport"
+	"github.com/vanga-top/skyline-spider/rpc/framework"
+	"github.com/vanga-top/skyline-spider/rpc/framework/entity"
+	"github.com/vanga-top/skyline-spider/rpc/transport"
 )
 
 type ProviderInvoker struct {

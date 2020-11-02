@@ -3,10 +3,10 @@ package rpc_client
 import (
 	"context"
 	"github.com/juju/errors"
-	"github.com/skyline/skyline-spider/rpc/framework"
-	"github.com/skyline/skyline-spider/rpc/framework/config"
-	"github.com/skyline/skyline-spider/rpc/framework/registry"
-	"github.com/skyline/skyline-spider/rpc/framework/slb"
+	"github.com/vanga-top/skyline-spider/rpc/framework"
+	"github.com/vanga-top/skyline-spider/rpc/framework/config"
+	"github.com/vanga-top/skyline-spider/rpc/framework/registry"
+	"github.com/vanga-top/skyline-spider/rpc/framework/slb"
 	"strconv"
 	"time"
 )

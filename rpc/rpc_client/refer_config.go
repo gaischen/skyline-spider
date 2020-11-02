@@ -2,8 +2,8 @@ package rpc_client
 
 import (
 	"github.com/juju/errors"
-	"github.com/skyline/skyline-spider/rpc/framework"
-	"github.com/skyline/skyline-spider/rpc/framework/serializations"
+	"github.com/vanga-top/skyline-spider/rpc/framework"
+	"github.com/vanga-top/skyline-spider/rpc/framework/serializations"
 	"strings"
 	"time"
 )

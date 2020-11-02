@@ -1,4 +1,4 @@
-module github.com/skyline/skyline-spider
+module github.com/vanga-top/skyline-spider
 
 go 1.14
 
