@@ -26,7 +26,7 @@ if ps -p $pid > /dev/null
 fi
 
 
-nuhup go main > run.log &
+nuhup  ./main > run.log &
 
 echo "start new process..."
 npid=$(ps -ef | grep "main" | grep -v grep | awk '{print $2}')
