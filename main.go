@@ -7,5 +7,5 @@ import (
 func main() {
 	router := gin.Default()
 	router.Static("/", "portal")
-	router.Run(":80")
+	router.Run(":1024")
 }
