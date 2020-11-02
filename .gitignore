@@ -1,2 +1,4 @@
 vendor/
 go.sum
+.DS_Store
+run.log
