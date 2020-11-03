@@ -1,4 +1,4 @@
-package api_server
+package config
 
 
 type Result struct {

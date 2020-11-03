@@ -1,4 +1,4 @@
-package api_server
+package config
 
 import (
 	"encoding/json"
@@ -18,7 +18,7 @@ var (
 	ApiServerConfig Config
 )
 
-func parserConfig() {
+func ParserConfig() {
 	filePath := "/home/api_server.conf"
 	sysType := runtime.GOOS
 	if sysType != "linux" { //linux环境下
