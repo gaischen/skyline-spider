@@ -12,11 +12,13 @@ import (
 */
 func CreateRTMPPushStreamURL() (string, gin.HandlerFunc) {
 	fun := func(context *gin.Context) {
-		err := pili.CreateRTMPPushURL(config.ApiServerConfig)
+		url, err := pili.CreateRTMPPushURL(config.ApiServerConfig)
 		if err != nil {
+			result := &config.Result{Message: "failed", Code: -1, Result: ""}
+			context.JSON(-1, result)
 			return
 		}
-		result := &config.Result{Message: "success", Code: 200, Result: "null"}
+		result := &config.Result{Message: "success", Code: 200, Result: url}
 		context.JSON(200, result)
 	}
 	return "/qn/api/rtmp/create", fun
