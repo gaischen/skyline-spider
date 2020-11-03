@@ -15,6 +15,9 @@ func init() {
 	go startApiServer()
 }
 
+/**
+--注册controller,把逻辑和一些通用行为隔离开
+*/
 func register() {
 	config.RegisterHandler(controller.CreateRTMPPushStreamURL())
 }

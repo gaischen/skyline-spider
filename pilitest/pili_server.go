@@ -1,4 +1,4 @@
-package main
+package pilitest
 
 import (
 	"flag"
@@ -20,7 +20,7 @@ func init() {
 	testing.Init()
 
 	flag.StringVar(&AccessKey, "QINIU_ACCESS_KEY", "", "")
-	flag.StringVar(&SecretKey, "QINIU_SECRET_KEY", "", "")          // 替换成自己 Qiniu 账号的 SecretKey.
+	flag.StringVar(&SecretKey, "QINIU_SECRET_KEY", "", "")  // 替换成自己 Qiniu 账号的 SecretKey.
 	flag.StringVar(&HubName, "HubName", "vanga-test01", "") // Hub 必须事先存在.
 
 	flag.Parse()
@@ -187,7 +187,7 @@ func saveSnapshot(hub *pili.Hub, key string) {
 	fmt.Println(fname)
 }
 
-func main() {
+func va() {
 	streamKeyPrefix := "sdkexample" + strconv.FormatInt(time.Now().UnixNano(), 10)
 
 	// 初始化 client & hub.
