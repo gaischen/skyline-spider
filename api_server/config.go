@@ -11,6 +11,7 @@ type Config struct {
 	AccessKey string `json:"access_key"`
 	SecretKey string `json:"secret_key"`
 	HubName   string `json:"hub_name"`
+	Token     string `json:"token"`
 }
 
 var (

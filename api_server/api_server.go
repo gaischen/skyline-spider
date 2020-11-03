@@ -14,6 +14,6 @@ func init() {
 func startApiServer() {
 	apiServer := gin.Default()
 	apiServer.GET("/qn/api/rtmp/create", createRTMPURL())
-	fmt.Println("starting api server .....")
+	fmt.Println("starting api server successful.....")
 	apiServer.Run(":1023")
 }
