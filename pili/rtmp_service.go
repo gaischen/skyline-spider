@@ -28,3 +28,10 @@ func CreateRTMPPushURL(config config.Config) (string, error) {
 func genRTMPublishURL(config config.Config, streamKey string, mac *pili.MAC) string {
 	return pili.RTMPPublishURL("pili-publish.vanga.top", config.HubName, streamKey, mac, 3600)
 }
+
+/**
+-- get rtmp play url
+*/
+func GetRTMPPlayURL(config config.Config, streamKey string) string {
+	return pili.RTMPPlayURL("pili-live-rtmp.vanga.top", config.HubName, streamKey)
+}
