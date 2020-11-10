@@ -5,8 +5,10 @@ import (
 	"github.com/vanga-top/skyline-spider/api_server/config"
 )
 
+const streamKeyPrefix = "sdkvanga_ls1604365190496857000"
+
 func CreateRTMPPushURL(config config.Config) (string, error) {
-	streamKeyPrefix := "sdkvanga_ls1604365190496857000"
+
 	mac := &pili.MAC{AccessKey: config.AccessKey, SecretKey: []byte(config.SecretKey)}
 	client := pili.New(mac, nil)
 	hub := client.Hub(config.HubName)
@@ -33,5 +35,8 @@ func genRTMPublishURL(config config.Config, streamKey string, mac *pili.MAC) str
 -- get rtmp play url
 */
 func GetRTMPPlayURL(config config.Config, streamKey string) string {
+	if streamKey == "" {
+		streamKey = streamKeyPrefix
+	}
 	return pili.RTMPPlayURL("pili-live-rtmp.vanga.top", config.HubName, streamKey)
 }

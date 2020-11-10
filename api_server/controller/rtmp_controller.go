@@ -23,3 +23,12 @@ func CreateRTMPPushStreamURL() (string, gin.HandlerFunc) {
 	}
 	return "/qn/api/rtmp/create", fun
 }
+
+func GetRTMPPlayURL() (string, gin.HandlerFunc) {
+	fun := func(context *gin.Context) {
+		url := pili.GetRTMPPlayURL(config.ApiServerConfig, "")
+		result := &config.Result{Message: "success", Code: 200, Result: url}
+		context.JSON(200, result)
+	}
+	return "/qn/api/rtml/play", fun
+}

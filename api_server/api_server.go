@@ -20,6 +20,7 @@ func init() {
 */
 func register() {
 	config.RegisterHandler(controller.CreateRTMPPushStreamURL())
+	config.RegisterHandler(controller.GetRTMPPlayURL())
 }
 
 func startApiServer() {
