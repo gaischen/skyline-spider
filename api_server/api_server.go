@@ -21,6 +21,7 @@ func init() {
 func register() {
 	config.RegisterHandler(controller.CreateRTMPPushStreamURL())
 	config.RegisterHandler(controller.GetRTMPPlayURL())
+	config.RegisterHandler(controller.GetRTCRoomToken())
 }
 
 func startApiServer() {
